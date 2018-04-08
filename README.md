@@ -1,5 +1,7 @@
 # How to use
 * clone the repo
+* Install serverless. `npm install -g serverless`
+* cd `lambda-apigateway-ec2-meta`
 * Run `npm install --save-dev  serverless-python-requirements`
 * Edit the `serverless.yml`
 ```
@@ -8,5 +10,4 @@
   2. profile
   3. region
  ````
-* Install serverless. `npm install -g serverless`
-* Deploy "sls deploy"
+* Deploy using "sls deploy"
