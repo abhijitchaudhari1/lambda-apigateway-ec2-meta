@@ -1,0 +1,39 @@
+frameworkVersion: ">=1.0.0 <2.0.0"
+
+plugins:
+  - serverless-python-requirements
+#  - serverless-wsgi
+
+
+service: CCInterviewLambdaExercise
+
+#custom:
+#  wsgi:
+#    app: lambda_function.app
+#    packRequirements: false
+#  pythonRequirements:
+#    dockerizePip: non-linux
+
+provider:
+  deploymentBucket:
+    name: "denali-build"
+  name: aws
+  runtime: python2.7
+  environment:
+    use_profile: "N"
+    profile_name: "datami-dev"
+  stage: dev
+  profile: datami-dev
+  region: us-east-1
+  memorySize: 512
+  timeout: 100
+  role: 'arn:aws:iam::686159376335:role/lambda_basic_execution'
+
+functions:
+  CCInterviewLambdaExercise-Abhijit:
+    name: CCInterviewLambdaExercise-Abhijit
+    handler: lambda_function.main_func
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+
