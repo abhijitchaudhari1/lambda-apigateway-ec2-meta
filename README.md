@@ -9,5 +9,6 @@
   1. deploymentBucket -> name
   2. profile
   3. region
+  4. role
  ````
 * Deploy using "sls deploy"
